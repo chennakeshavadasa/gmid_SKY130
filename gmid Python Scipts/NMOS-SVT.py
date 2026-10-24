@@ -2,8 +2,11 @@ import matplotlib.pyplot as plt  # type: ignore
 from matplotlib.widgets import CheckButtons  # type: ignore
 import numpy as np
 
-# Define the path to the directory
-path = r"C:PATH\\"
+import os
+
+# Define the path to the directory (defaults to this repo's "gmid Data" folder;
+# change it if you keep the data somewhere else)
+path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "gmid Data", "nfet3_01v8_svt", "")
 
 # Initialize lists for storing results
 vgs = [[] for _ in range(13)]
@@ -33,6 +36,9 @@ for i in range(13):
                         Cgg = temp[9]  # 10th column is Cgg
                         Cgs = abs(temp[11])  # 12th column is Cgs
                         Cgd = abs(temp[13])  # 13th column is Cgd
+                        # Skip points that would divide by zero (e.g. Id = 0 deep in subthreshold)
+                        if id_val == 0 or gds == 0 or Cgg == 0:
+                            continue
 
                         # Calculate Vov
                         vov_value = Vgs - Vth
@@ -57,7 +63,7 @@ for i in range(13):
         print(f"Error: An unexpected error occurred with file {filename}: {e}")
 
 # Labels for different transistor lengths
-labels = ['0.15u', '0.3u', '0.5u', '0.75u', '1u', '1.25u', '1.5u', '1.75u', '2u', '2.25u', '2.5u', '2.75u', '3u']  # SKY130 Lengths
+labels = ['0.15u', '0.25u', '0.5u', '0.75u', '1u', '1.25u', '1.5u', '1.75u', '2u', '2.25u', '2.5u', '2.75u', '3u']  # SKY130 Lengths
 
 # Debugging: Print lengths of data arrays
 print(f"Length of vgs: {len(vgs)}")
