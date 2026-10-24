@@ -2,6 +2,8 @@
 # **gmid_SKY130**  
 This repository contains **GM/ID extraction data** and related Interactive scripts to get started with gm/id based design using the **SKY130 PDK**. It enables users to perform circuit simulations, extract key transistor parameters, and generate insightful plots quickly and efficiently.  
 
+🔗 **Interactive gm/ID tool:** Explore this data in the browser — no install needed — at **[nithinpuru.github.io/gmid/sky130a](https://nithinpuru.github.io/gmid/sky130a/)** (part of the [gm/ID Explorer](https://nithinpuru.github.io/gmid/) for SKY130A, GF180MCU-D and IHP SG13G2).
+
 ---
 
 ## **Installation**
