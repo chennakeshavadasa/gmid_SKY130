@@ -6,13 +6,17 @@ This repository contains ngspice sweep data for the SKY130 NMOS and PMOS devices
 
 ### 🔗 Interactive gm/ID tool website
 
-Explore this data in your browser, no install needed. Copy the URL below and open it:
+Explore this data in your browser, no install needed. Click the link, or copy the URL:
+
+👉 **[Open the SKY130A gm/ID Explorer](https://nithinpuru.github.io/gmid/sky130a/)**
 
 ```
 https://nithinpuru.github.io/gmid/sky130a/
 ```
 
 All PDKs (SKY130A, GF180MCU-D, IHP SG13G2):
+
+👉 **[Open the gm/ID Explorer (all PDKs)](https://nithinpuru.github.io/gmid/)**
 
 ```
 https://nithinpuru.github.io/gmid/
