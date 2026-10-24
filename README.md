@@ -4,11 +4,11 @@
 
 This repository contains ngspice sweep data for the SKY130 NMOS and PMOS devices, the Xschem testbenches that produced it, and Python scripts that turn it into the standard gm/ID design charts. Use it to size transistors with the gm/ID methodology.
 
-### 🔗 Interactive gm/ID tool website
+## Interactive gm/ID tool website
 
 Explore this data in your browser, no install needed. Click the link, or copy the URL:
 
-👉 **[Open the SKY130A gm/ID Explorer](https://nithinpuru.github.io/gmid/sky130a/)**
+**[Open the SKY130A gm/ID Explorer](https://nithinpuru.github.io/gmid/sky130a/)**
 
 ```
 https://nithinpuru.github.io/gmid/sky130a/
@@ -16,7 +16,7 @@ https://nithinpuru.github.io/gmid/sky130a/
 
 All PDKs (SKY130A, GF180MCU-D, IHP SG13G2):
 
-👉 **[Open the gm/ID Explorer (all PDKs)](https://nithinpuru.github.io/gmid/)**
+**[Open the gm/ID Explorer (all PDKs)](https://nithinpuru.github.io/gmid/)**
 
 ```
 https://nithinpuru.github.io/gmid/
