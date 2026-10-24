@@ -3,8 +3,11 @@ from matplotlib.widgets import CheckButtons  # type: ignore
 import numpy as np
 
 
-# Define the path to the directory
-path = r"C:PATH\\"
+import os
+
+# Define the path to the directory (defaults to this repo's "gmid Data" folder;
+# change it if you keep the data somewhere else)
+path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "gmid Data", "nfet_g5v0d10v5", "")
 
 # Initialize lists for storing results
 vgs = [[] for _ in range(13)]
@@ -34,6 +37,9 @@ for i in range(11):
                         Cgg = temp[9]  # 10th column is Cgg
                         Cgs = abs(temp[11])  # 12th column is Cgs
                         Cgd = abs(temp[13])  # 13th column is Cgd
+                        # Skip points that would divide by zero (e.g. Id = 0 deep in subthreshold)
+                        if id_val == 0 or gds == 0 or Cgg == 0:
+                            continue
 
                         # Calculate Vov
                         vov_value = Vgs - Vth
@@ -132,22 +138,22 @@ def plot_with_checkboxes(x_data, y_data, x_label, y_label, title):
     plt.show()
 
 # Plot gm/id versus Vgs
-plot_with_checkboxes(vgs, gm_id, 'Vgs', 'gm/id', 'NMOS-LVT gm/id versus Vgs')
+plot_with_checkboxes(vgs, gm_id, 'Vgs', 'gm/id', 'NMOS-g5v0d10v5 gm/id versus Vgs')
 
 # Plot gm/id versus Vov
-plot_with_checkboxes(Vov, gm_id, 'Vov', 'gm/id', 'NMOS-LVT gm/id versus Vov')
+plot_with_checkboxes(Vov, gm_id, 'Vov', 'gm/id', 'NMOS-g5v0d10v5 gm/id versus Vov')
 
 # Plot gm/gds versus gm/id
-plot_with_checkboxes(gm_id, gm_gds, 'gm/id', 'gm/gds', 'NMOS-LVT gm/gds versus gm/id')
+plot_with_checkboxes(gm_id, gm_gds, 'gm/id', 'gm/gds', 'NMOS-g5v0d10v5 gm/gds versus gm/id')
 
 # Plot id/W versus gm/id
-plot_with_checkboxes(gm_id, id_W, 'gm/id', 'id/W', 'NMOS-LVT id/W versus gm/id')
+plot_with_checkboxes(gm_id, id_W, 'gm/id', 'id/W', 'NMOS-g5v0d10v5 id/W versus gm/id')
 
 # Plot ft = gm / Cgg versus gm/id
-plot_with_checkboxes(gm_id, ft, 'gm/id', 'ft (Hz)', 'NMOS-LVT ft versus gm/id')
+plot_with_checkboxes(gm_id, ft, 'gm/id', 'ft (Hz)', 'NMOS-g5v0d10v5 ft versus gm/id')
 
 # Plot Cgd / Cgg versus gm/id
-plot_with_checkboxes(gm_id, cgd_cgg, 'gm/id', 'Cgd / Cgg', 'NMOS-LVT Cgd / Cgg versus gm/id')
+plot_with_checkboxes(gm_id, cgd_cgg, 'gm/id', 'Cgd / Cgg', 'NMOS-g5v0d10v5 Cgd / Cgg versus gm/id')
 
 # Plot Cgs / Cgg versus gm/id
-plot_with_checkboxes(gm_id, cgs_cgg, 'gm/id', 'Cgs / Cgg', 'NMOS-LVT Cgs / Cgg versus gm/id')
+plot_with_checkboxes(gm_id, cgs_cgg, 'gm/id', 'Cgs / Cgg', 'NMOS-g5v0d10v5 Cgs / Cgg versus gm/id')
